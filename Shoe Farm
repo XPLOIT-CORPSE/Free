@@ -1,0 +1,38 @@
+--Examples
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/XPLOIT-CORPSE/Free/main/Ui%20Library",true))()
+
+
+local ExtraWindow = Library:CreateWindow("Extra")
+
+ExtraWindow:Toggle("Shoe Farm", function(ShoeFarm)
+	if ShoeFarm == true then
+		_G.ShoeFarm = true
+
+		
+	elseif ShoeFarm == false then
+		_G.ShoeFarm = false
+		
+	end
+end)
+
+
+
+
+_G.ShoeFarm = false
+   while wait(0.00001) do
+        local descendants = game.Workspace.Ignored.Drop:GetDescendants()
+        if _G.ShoeFarm == true then
+        for index, descendant in pairs(descendants) do
+            if descendant.Name == "MeshPart" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(descendant.Position)
+                wait(0.00001)
+                fireclickdetector(game.Workspace.Ignored.Drop.MeshPart.ClickDetector)
+                wait(0.00001)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Ignored["Clean the shoes on the floor and come to me for cash"].Head.CFrame
+                fireclickdetector(game:GetService("Workspace").Ignored["Clean the shoes on the floor and come to me for cash"].ClickDetector)
+                wait(0.00001)
+            end
+       end
+   end
+   end
+
