@@ -23,18 +23,7 @@ end
 highlightsFolder.Parent = folderLocation
 local renderedTargets = {}
 
-
-local Enabled = true
-game:GetService("UserInputService").InputBegan:connect(function(inputObject)
-    if inputObject.KeyCode == Enum.KeyCode.F1 then
-        if Enabled == true then
-            Enabled = false
-        elseif Enabled == false then
-            Enabled = true
-        end
-    end
-end)
-
+getgenv().enabled = true
 function highlightLib:addEsp(targetModel:Model)--highlightLib:addEsp(target.Character) to use this
 	if table.find(renderedTargets,targetModel) then--preventing duplicates, this is a way to fix my psx script lol 
 	    return
@@ -42,14 +31,10 @@ function highlightLib:addEsp(targetModel:Model)--highlightLib:addEsp(target.Char
 	local highlightSettings = self.Settings--literally the only time I have used self
 	local newHighlight = Instance.new("Highlight")--wow no shit
 	newHighlight.Adornee = targetModel
-	   if Enabled == true then
-                newHighlight.Enabled = true
-            elseif Enabled == false then
-                newHighlight.Enabled = false
-            end
 	for i,v in next, highlightSettings do
 		newHighlight[i] = v
 	end
+	newHighlight.Enabled = getgenv().enabled
 	newHighlight.Parent = highlightsFolder
 	table.insert(renderedTargets,targetModel)
 	
