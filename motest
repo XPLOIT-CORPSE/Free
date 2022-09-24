@@ -34,12 +34,12 @@ function highlightLib:addEsp(targetModel:Model)--highlightLib:addEsp(target.Char
 	for i,v in next, highlightSettings do
 		newHighlight[i] = v
 	end
-	newHighlight.Enabled = getgenv().enabled
 	newHighlight.Parent = highlightsFolder
 	table.insert(renderedTargets,targetModel)
 	
 	local currentConnections = {}
 	currentConnections[#currentConnections+1] = targetModel.AncestryChanged:Connect(function() --could just do 1 or not include a table, but I might get snazzy and add new shit (I won't)
+			newHighlight.Enabled = getgenv().enabled
 		if not targetModel or targetModel.Parent == nil then
 			newHighlight:Destroy()
 			for i,v in ipairs(currentConnections) do
