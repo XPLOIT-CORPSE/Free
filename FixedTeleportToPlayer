@@ -1,6 +1,6 @@
 print("loading tp")
 
-game.Players.LocalPlayer.Character.Humanoid.Walkspeed = 50
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
 
 
 
