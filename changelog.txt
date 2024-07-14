@@ -1,11 +1,3 @@
-Changelog
----------
 test,
-dwadsd
-dwas,
-tyeads
-test,,
-dwadsd,
-dwas,,
-tyeads
-test, dwadsd dwas, tyeads
+dwadsd dwas,
+tyeads,
